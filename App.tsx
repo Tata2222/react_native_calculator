@@ -93,16 +93,18 @@ export default function App() {
       : displayValue;
   
     try {
-      resultValue = eval(value.join('') + inputValue);
-
+      resultValue = String(eval(value.join('') + inputValue));
+      if(resultValue.includes('.')){
+        resultValue = String(Math.round(+resultValue * 100) / 100);
+      }
       if(String(resultValue) === 'Infinity') {
         throw new Error('Error');
       } 
     } catch (e) {
       resultValue = 'Error';
     }
-    setResult(String(resultValue));
-    setInputValue(String(resultValue))
+    setResult(resultValue);
+    setInputValue(resultValue);
     setDisplayValue([])
   }
 
@@ -110,11 +112,14 @@ export default function App() {
     let newMemorizedValue: string;
 
     try {
-      newMemorizedValue = eval(`${memorizedValue} + ${inputValue} * ${sign}`);
+      newMemorizedValue = String(eval(`${memorizedValue} + ${inputValue} * ${sign}`));
+      if(newMemorizedValue.includes('.')){
+        newMemorizedValue = String(Math.round(+newMemorizedValue * 100) / 100);
+      }
     } catch (e) {
       return;
     }
-    setMemorizedValue(String(newMemorizedValue))
+    setMemorizedValue(newMemorizedValue)
   }
 
   const showMemory = () => {
