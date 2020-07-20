@@ -4,9 +4,9 @@
     "slug": "react_native_calculator",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/calc.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/calc.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -21,6 +21,7 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": ""
   }
 }
